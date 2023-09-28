@@ -2,24 +2,31 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        String str1 = "Victory";
+        String str2 = "Fighting";
+        String str3 = "Freedom";
 
-        System.out.println("Enter the length of the first side of the triangle:");
-        double side1 = input.nextDouble();
+        String middleChars1 = getMiddleChars(str1);
+        String middleChars2 = getMiddleChars(str2);
+        String middleChars3 = getMiddleChars(str3);
 
-        System.out.println("Enter the length of the second side of the triangle:");
-        double side2 = input.nextDouble();
+        System.out.println("Result for " + str1 + ": " + middleChars1);
+        System.out.println("Result for " + str2 + ": " + middleChars2);
+        System.out.println("Result for " + str3 + ": " + middleChars3);
+    }
 
-        System.out.println("Enter the length of the third side of the triangle:");
-        double side3 = input.nextDouble();
+    public static String getMiddleChars(String str) {
+        int length = str.length();
+        int middleIndex = length / 2;
 
-        if (side1 == side2 || side2 == side3 || side1 == side3) {
-            System.out.println("The triangle is isosceles.");
+        // Checking if the length of the string is even
+        if (length % 2 == 0) {
+            // If it is even, then we choose two middle symbols
+            return str.substring(middleIndex - 1, middleIndex + 1);
         } else {
-            System.out.println("The triangle is not isosceles.");
+            // If it is odd, then we choose one middle symbol
+            return str.substring(middleIndex, middleIndex + 1);
         }
-
-        input.close();
     }
 }
 
