@@ -1,32 +1,28 @@
 public class Main {
     public static void main(String[] args) {
-            String str1 = "Victory";
-            String str2 = "Fighting";
-            String str3 = "Freedom";
+        String str = "pylyp";
 
-            String middleChars1 = getMiddleChars(str1);
-            String middleChars2 = getMiddleChars(str2);
-            String middleChars3 = getMiddleChars(str3);
-
-            System.out.println("Result for " + str1 + ": " + middleChars1);
-            System.out.println("Result for " + str2 + ": " + middleChars2);
-            System.out.println("Result for " + str3 + ": " + middleChars3);
+        if (isPalindrome(str)) {
+            System.out.println(str + " is a palindrome.");
+        } else {
+            System.out.println(str + " is not a palindrome.");
         }
+    }
 
-        public static String getMiddleChars(String str) {
-            int length = str.length();
-            int middleIndex = length / 2;
+    public static boolean isPalindrome(String str) {
+        // We convert the string into an array of characters
+        char[] charArray = str.toCharArray();
+        int length = charArray.length;
 
-            // Checking if the length of the string is even
-            // If it is odd, then we choose one middle symbol
-            if (length % 2 == 0) {
-                //If it is even, then we choose two middle symbols
-                return str.substring(middleIndex - 1, middleIndex + 1);
-            } else {
-                // If it is odd, then we choose one middle symbol
-                return str.substring(middleIndex, middleIndex + 1);
+        // We check whether the string is a palindrome
+        for (int i = 0; i < length / 2; i++) {
+            if (charArray[i] != charArray[length - 1 - i]) {
+                return false; // If the characters do not match, then the string is not a palindrome
             }
         }
+
+        return true; // If all characters match, then the string is a palindrome
+    }
 }
 
 
